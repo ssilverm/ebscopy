@@ -30,11 +30,13 @@ setup(
 	include_package_data	= True,
 	description				= 'Official Python wrapper for the EBSCO Discovery Service (EDS) API',
 	long_description		= ld,
-	python_requires			= '>=2.7,!=3.*,',
+	python_requires			= '>=2.7',
 	install_requires		= [
 								"datetime",
 								"logging",
 								"requests",
+								"lxml",
+								"python-dateutil"
 							],
 	data_files				= [ 
 								("ebscopy/samples", 

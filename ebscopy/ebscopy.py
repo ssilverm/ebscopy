@@ -649,7 +649,7 @@ class Session:
 			return "Inactive Session"
 	# End of [__str__] function
 
-	def __nonzero__(self):
+	def __bool__(self):
 		"""
 		Determine boolean value based on self.active.
 
@@ -1080,7 +1080,7 @@ class Results:
 		return bool(self.stat_total_hits)
 	# End of [__bool__] function
 
-	def __nonzero__(self):
+	def __bool__(self):
 		"""
 		Determine boolean value based on number of hits (Python 2).
 
@@ -1118,7 +1118,7 @@ class Results:
 	# End of [__ne__] function
 	
 	# Less Than function
- 	def __lt__(self, other):
+	def __lt__(self, other):
 		if isinstance(other, Results):
 			return self.stat_total_hits < other.stat_total_hits
 		elif isinstance(other, int):
@@ -1128,7 +1128,7 @@ class Results:
 	# End of [__lt__] function
 
 	# Less Than or Equal function
- 	def __le__(self, other):
+	def __le__(self, other):
 		if isinstance(other, Results):
 			return self.stat_total_hits <= other.stat_total_hits
 		elif isinstance(other, int):
@@ -1138,7 +1138,7 @@ class Results:
 	# End of [__le__] function
 
 	# Greater Than function
- 	def __gt__(self, other):
+	def __gt__(self, other):
 		if isinstance(other, Results):
 			return self.stat_total_hits > other.stat_total_hits
 		elif isinstance(other, int):
@@ -1148,7 +1148,7 @@ class Results:
 	# End of [__gt__] function
 
 	# Greater Than or Equal function
- 	def __ge__(self, other):
+	def __ge__(self, other):
 		if isinstance(other, Results):
 			return self.stat_total_hits >= other.stat_total_hits
 		elif isinstance(other, int):
@@ -1367,24 +1367,24 @@ class Results:
 		"""
 		Print the list of results in a not displeasing manner.
 		"""
-		print "Search Results"
-		print "--------------------"
-		print repr(self)
-		print "--------------------"
+		print("Search Results")
+		print("--------------------")
+		print((repr(self)))
+		print("--------------------")
 		for record in self.records_simple:
-			print("DbId: %s" % record.get("DbId"))
-			print("An: %s" % record.get("An"))
-			print("Title: %s" % record.get("Title"))
-			print("Author: %s" % record.get("Author"))
-			print("PLink: %s" % record.get("PLink"))
-			print("Subject: %s" % record.get("Subject"))
-			print("DOI: %s" % record.get("Doi"))
-			print("Isbn: %s" % record.get("Isbn"))
-			print("Issn: %s" % record.get("Issn"))
-			print("Abstract: %s" % record.get("Abstract"))
-			print "----------"
-			print
-		print "--------------------"
+			print(("DbId: %s" % record.get("DbId")))
+			print(("An: %s" % record.get("An")))
+			print(("Title: %s" % record.get("Title")))
+			print(("Author: %s" % record.get("Author")))
+			print(("PLink: %s" % record.get("PLink")))
+			print(("Subject: %s" % record.get("Subject")))
+			print(("DOI: %s" % record.get("Doi")))
+			print(("Isbn: %s" % record.get("Isbn")))
+			print(("Issn: %s" % record.get("Issn")))
+			print(("Abstract: %s" % record.get("Abstract")))
+			print("----------")
+			print()
+		print("--------------------")
 		return
 # End of Results class
 
@@ -1470,12 +1470,12 @@ class Record:
 		"""
 		Print the list of results in a not displeasing manner.
 		"""
-		print("DbId: %s"	% self.dbid)
-		print("An: %s"		% self.an)
-		print("Title: %s"	% self.simple_title)
-		print("Author: %s"	% self.simple_author)
-		print("PLink: %s"	% self.plink)
-		print
+		print(("DbId: %s"	% self.dbid))
+		print(("An: %s"		% self.an))
+		print(("Title: %s"	% self.simple_title))
+		print(("Author: %s"	% self.simple_author))
+		print(("PLink: %s"	% self.plink))
+		print()
 		return
 	# End of [print] function
 # End of Record class

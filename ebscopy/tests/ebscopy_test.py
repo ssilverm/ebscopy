@@ -57,14 +57,14 @@ class CreateSessionsWithParameters(unittest.TestCase):
 	# We want to strip out any environment variables so they don't get used
 	def setUp(self):
 		self.environ						= {}
-		for env, value in os.environ.items():
+		for env, value in list(os.environ.items()):
 			if re.match("EDS_", env):
 				self.environ[env]			= value
 				os.environ[env]				= ""
 
 	# Gotta put them back!
 	def tearDown(self):
-		for env, value in self.environ.items():
+		for env, value in list(self.environ.items()):
 			os.environ[env]					= value
 
 	def test_good_explicit_connection_works(self):
@@ -358,10 +358,10 @@ class RecordTests(unittest.TestCase):
 		rec_2								= sess.retrieve(res.record[2])
 
 		self.assertIsInstance(rec_0, ebscopy.Record)
-		self.assertIsInstance(rec_0.dbid, (unicode, str))
-		self.assertIsInstance(rec_0.an, (unicode, str))
-		self.assertIsInstance(rec_0.plink, (unicode, str))
-		self.assertRegexpMatches(rec_0.plink, "^http://")
+		self.assertIsInstance(rec_0.dbid, (str, str))
+		self.assertIsInstance(rec_0.an, (str, str))
+		self.assertIsInstance(rec_0.plink, (str, str))
+		self.assertRegex(rec_0.plink, "^http://")
 
 		self.assertEqual(rec_0, rec_0)									# Test identity
 		self.assertEqual(rec_1_a, rec_1_b)								# Test two equal objects
