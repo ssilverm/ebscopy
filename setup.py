@@ -33,7 +33,6 @@ setup(
 	python_requires			= '>=2.7',
 	install_requires		= [
 								"datetime",
-								"logging",
 								"requests",
 								"lxml",
 								"python-dateutil"
